@@ -5,7 +5,7 @@ WORKDIR /go/src
 EXPOSE 80
 
 RUN git clone https://github.com/syou551/dirShareApp.git \
-    && mkdir ../tmp/share\
+    && mkdir -p ./tmp/share\
     && cd back
 
 RUN go build main.go handler.go
