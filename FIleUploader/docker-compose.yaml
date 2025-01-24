@@ -4,7 +4,7 @@ services:
       context: ./front
       dockerfile: Dockerfile
     ports:
-      - "8000:8000"
+      - "8050:8000"
     command: npm run start
   back:
     build:
@@ -13,7 +13,7 @@ services:
     volumes: 
       - /tmp/share:/go
     ports:
-      - "80:80"
+      - "8060:80"
     command: ./main
   nginx:
     build:
@@ -23,5 +23,5 @@ services:
       - front
       - back
     ports:
-      - "8080:8080"
+      - "8010:8080"
     
