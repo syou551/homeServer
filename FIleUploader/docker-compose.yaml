@@ -11,7 +11,7 @@ services:
       context: ./back
       dockerfile: Dockerfile
     volumes: 
-      - ./tmp/share:/go
+      - /tmp/share:/go
     ports:
       - "80:80"
     command: ./main
