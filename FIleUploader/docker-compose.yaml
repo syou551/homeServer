@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8050:8000"
-    command: npm run start
+    command: cd /node/dirShareApp/front/dir-share | npm run start
   back:
     build:
       context: ./back
@@ -14,7 +14,7 @@ services:
       - /tmp/share:/go
     ports:
       - "8060:80"
-    command: ./main
+    command: cd /go/src/dirShareApp/back | ./main
   nginx:
     build:
       context: ./nginx
