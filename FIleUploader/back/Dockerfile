@@ -8,7 +8,4 @@ RUN git clone https://github.com/syou551/dirShareApp.git \
     && mkdir ../tmp/share\
     && cd back
 
-RUN go build main.go handler.go \
-    && ./main
-
-
+RUN go build main.go handler.go

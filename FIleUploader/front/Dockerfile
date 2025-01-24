@@ -7,5 +7,4 @@ RUN git clone https://github.com/syou551/dirShareApp.git \
     && cd front \
     && cd dir-share
 
-RUN npm install\
-    && npm run start
+RUN npm install
