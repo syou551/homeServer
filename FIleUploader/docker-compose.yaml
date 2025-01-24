@@ -1,0 +1,25 @@
+services:
+  front:
+    build:
+      context: ./front
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+  back:
+    build:
+      context: ./back
+      dockerfile: Dockerfile
+    volumes: 
+      - ./tmp/share:/go
+    ports:
+      - "80:80"
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    depends_on:
+      - front
+      - back
+    ports:
+      - "8080:8080"
+    
