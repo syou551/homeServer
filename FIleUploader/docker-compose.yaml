@@ -3,9 +3,10 @@ services:
     build:
       context: ./front
       dockerfile: Dockerfile
+    working_dir: /node/dirShareApp/front/dir-share
     ports:
-      - "8050:8000"
-    command: cd /node/dirShareApp/front/dir-share | npm run start
+      - "8000:8000"
+    command: npm run start
   back:
     build:
       context: ./back
@@ -13,8 +14,9 @@ services:
     volumes: 
       - /tmp/share:/go
     ports:
-      - "8060:80"
-    command: cd /go/src/dirShareApp/back | ./main
+      - "8010:80"
+    working_dir: /go/src/dirShareApp/back
+    command: ./main
   nginx:
     build:
       context: ./nginx
@@ -23,5 +25,5 @@ services:
       - front
       - back
     ports:
-      - "8010:8080"
+      - "8080:80"
     
