@@ -4,8 +4,9 @@ WORKDIR /go/src
 
 EXPOSE 80
 
-RUN git clone https://github.com/syou551/dirShareApp.git \
-    && mkdir -p ./tmp/share\
-    && cd ./dirShareApp/back\
-    && go mod tidy\
+RUN git clone https://github.com/syou551/dirShareApp.git
+
+WORKDIR /go/src/dirShareApp/back
+
+RUN go mod tidy\
     && go build main.go handler.go

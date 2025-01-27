@@ -4,19 +4,13 @@ services:
       context: ./front
       dockerfile: Dockerfile
     working_dir: /node/dirShareApp/front/dir-share
-    ports:
-      - "8000:8000"
     command: npm run start
   back:
     build:
       context: ./back
       dockerfile: Dockerfile
-    volumes: 
-      - /tmp/share:/go
-    ports:
-      - "8010:80"
     working_dir: /go/src/dirShareApp/back
-    command: ./main
+    command: bash -c "./main"
   nginx:
     build:
       context: ./nginx

@@ -1,10 +1,12 @@
 FROM node:23.6
 
 WORKDIR /node
-EXPOSE 8000
+EXPOSE 3000
 
-RUN git clone https://github.com/syou551/dirShareApp.git \
-    && cd ./dirShareApp/front \
-    && cd dir-share\
-    && npm install\
+RUN git clone https://github.com/syou551/dirShareApp.git 
+
+WORKDIR /node/dirShareApp/front/dir-share
+
+COPY ./.env.local .
+RUN npm install\
     && npm run build
