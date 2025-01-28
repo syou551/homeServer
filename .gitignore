@@ -1,2 +1,5 @@
 .env
 .env.local
+
+#tmp dir
+.tmp
