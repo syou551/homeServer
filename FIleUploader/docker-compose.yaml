@@ -10,6 +10,8 @@ services:
       context: ./back
       dockerfile: Dockerfile
     working_dir: /go/src/dirShareApp/back
+    volumes:
+      - ./.tmp:/tmp/share
     command: bash -c "./main"
   nginx:
     build:
