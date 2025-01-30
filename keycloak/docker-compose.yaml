@@ -1,14 +1,18 @@
 services:
   keycloak:
-    image: quay.io/keycloak/keycloak:latest
+    image: quay.io/keycloak/keycloak:22.0.1
+    tty: true
+    stdin_open: true
+    command:
+      - start-dev
     environment:
       DB_VENDOR: POSTGRES
       DB_ADDR: postgres
       DB_DATABASE: keycloak
       DB_USER: keycloak
       DB_PASSWORD: hoge
-      KEYCLOAK_USER: admin
-      KEYCLOAK_PASSWORD: test
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
     ports:
       - "8010:8080"
     depends_on:
