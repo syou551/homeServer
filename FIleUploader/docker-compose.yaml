@@ -20,6 +20,26 @@ services:
     depends_on:
       - front
       - back
+  oauth2-proxy:
+    build: 
+      context: ./oauth2proxy
+      dockerfile: Dockerfile
+    command:
+      - --provider=keycloak-oidc
+      - --oidc-issuer-url=http://meruto.tailbfa95.ts.net:8010/realms/auth
+      - --client-id=fileUploader
+      - --client-secret=${CLIENT_SECRET}
+      - --cookie-secret=${COOKIE_SECRET}
+      - --redirect-url=http://meruto.tailbfa95.ts.net:8080/oauth2/callback
+      - --upstream=http://nginx:80
+      - --email-domain=*
+      - --http-address=0.0.0.0:4180
+      - --errors-to-info-log
+      - --cookie-secure=false
+      - --reverse-proxy=true
+      - --allowed-role=admin
     ports:
-      - "8080:80"
+      - "8080:4180"
+    depends_on:
+      - nginx
     
