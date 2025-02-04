@@ -17,6 +17,8 @@ services:
       - "8010:8080"
     depends_on:
       - postgres
+    volume:
+      - ./keycloak/.data:/opt/jboss/keycloak/standalone/data
 
   postgres:
     image: postgres:latest
