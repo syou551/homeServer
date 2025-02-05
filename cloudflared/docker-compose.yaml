@@ -1,0 +1,10 @@
+services:
+  clouflared:
+    build:
+      context: ./cloudflared
+      dockerfile: Dockerfile
+    command: tunnel run
+    restart: always
+    environment:
+      - TUNNEL_TOKEN=${TUNNEL_TOKEN}
+    network_mode: host
