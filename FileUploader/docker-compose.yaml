@@ -3,13 +3,13 @@ services:
     build:
       context: ./front
       dockerfile: Dockerfile
-    working_dir: /node/dirShareApp/front/dir-share
+    working_dir: /node/FileUploader/front/dir-share
     command: npm run start
   back:
     build:
       context: ./back
       dockerfile: Dockerfile
-    working_dir: /go/src/dirShareApp/back
+    working_dir: /go/src/FileUploader/back
     volumes:
       - ./.tmp:/tmp/share
     command: bash -c "./main"

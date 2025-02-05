@@ -7,9 +7,9 @@ EXPOSE 80
 RUN mkdir /tmp/share -p\
     && chmod 777 /tmp/share
 
-RUN git clone https://github.com/syou551/dirShareApp.git
+RUN git clone https://github.com/syou551/FileUploader.git
 
-WORKDIR /go/src/dirShareApp/back
+WORKDIR /go/src/FileUploader/back
 
 COPY ./.env .
 RUN go mod tidy\
