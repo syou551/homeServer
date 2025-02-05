@@ -1,5 +1,6 @@
 .env
 .env.local
+.DS_Store
 
 #tmp dir
 .tmp
