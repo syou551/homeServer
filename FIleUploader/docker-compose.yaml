@@ -38,6 +38,7 @@ services:
       - --cookie-secure=false
       - --reverse-proxy=true
       - --allowed-role=admin
+      - --whitelist-domain=meruto.tailbfa95.ts.net:8010
     ports:
       - "8080:4180"
     depends_on:
