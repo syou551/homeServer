@@ -26,11 +26,11 @@ services:
       dockerfile: Dockerfile
     command:
       - --provider=keycloak-oidc
-      - --oidc-issuer-url=http://meruto.tailbfa95.ts.net:8010/realms/auth
+      - --oidc-issuer-url=http://auth.syou551.dev/realms/auth
       - --client-id=fileUploader
       - --client-secret=${CLIENT_SECRET}
       - --cookie-secret=${COOKIE_SECRET}
-      - --redirect-url=http://meruto.tailbfa95.ts.net:8080/oauth2/callback
+      - --redirect-url=https://fileup.syou551.dev/oauth2/callback
       - --upstream=http://nginx:80
       - --email-domain=*
       - --http-address=0.0.0.0:4180
@@ -38,7 +38,7 @@ services:
       - --cookie-secure=false
       - --reverse-proxy=true
       - --allowed-role=admin
-      - --whitelist-domain=meruto.tailbfa95.ts.net:8010
+      - --whitelist-domain=auth.syou551.dev
     ports:
       - "8080:4180"
     depends_on:
