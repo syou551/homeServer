@@ -5,7 +5,7 @@ cd /opt/keycloak/bin
 ./kc.sh start-dev &
 
 sleep 30
-./kcadm.sh config credentials --server http://localhost:8080 --realm master --user admin_kc01 --password hiascuyb231
+./kcadm.sh config credentials --server http://localhost:8080 --realm master --user admin --password admin
 
 ./kcadm.sh update realms/master -s sslRequired=NONE
 

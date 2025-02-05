@@ -1,3 +1,4 @@
+version: "3"
 services:
   keycloak:
     build: 
@@ -18,8 +19,8 @@ services:
       - "8010:8080"
     depends_on:
       - postgres
-    volume:
-      - ./keycloak/.data:/opt/keycloak
+    volumes:
+      - ./keycloak/.data:/opt/keycloak/data
 
   postgres:
     image: postgres:latest
