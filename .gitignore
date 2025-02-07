@@ -6,4 +6,5 @@
 .tmp
 .data
 .config
+.local
 setup.sh
