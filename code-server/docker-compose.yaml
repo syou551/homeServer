@@ -1,0 +1,16 @@
+services:
+  code-server:
+    build: 
+      context: ./code-server
+      dockerfile: Dockerfile
+    container_name: code-server
+    restart: always
+    ports:
+      - "8020:8080"
+    command: --auth=password
+    volumes:
+      - ./code-server/.config:/home/coder/.config
+      - ./code-server/.data:/home/coder/project
+    environment:
+      - PASSWORD=${PASSWORD}
+      - TZ=Asia/Tokyo
