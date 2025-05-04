@@ -6,3 +6,4 @@ https://github.com/overleaf/overleaf
 
 ## 設定
 ./.tmp/compilesと./.tmp/outputを作成するように
+compiles  mongo_data  output  redis_data
