@@ -1,4 +1,4 @@
-name: release-FileUploader-image
+name: release-keycloak-image
 on:
   push:
     branches:
@@ -7,8 +7,8 @@ on:
       - main
 
 jobs:
-  front:
-    runs-on: ubunts-latest
+  keycloak:
+    runs-on: ubuntu-latest
     steps:
       - name: checkout
         uses: actions/checkout@v3

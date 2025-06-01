@@ -7,8 +7,8 @@ on:
       - main
 
 jobs:
-  cloudflared:
-    runs-on: ubunts-latest
+  sample:
+    runs-on: ubuntu-latest
     steps:
       - name: checkout
         uses: actions/checkout@v3

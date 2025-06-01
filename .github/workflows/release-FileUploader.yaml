@@ -8,7 +8,7 @@ on:
 
 jobs:
   front:
-    runs-on: ubunts-latest
+    runs-on: ubuntu-latest
     steps:
       - name: checkout
         uses: actions/checkout@v3
@@ -33,7 +33,7 @@ jobs:
             ghcr.io/syou551/FileUploader-front:v1.0.0-${{ github.sha }}-${{ github.run_number }}
             ghcr.io/syou551/FileUploader-front:latest
   back:
-    runs-on: ubunts-latest
+    runs-on: ubuntu-latest
     steps:
       - name: checkout
         uses: actions/checkout@v3
@@ -58,7 +58,7 @@ jobs:
             ghcr.io/syou551/FileUploader-back:v1.0.0-${{ github.sha }}-${{ github.run_number }}
             ghcr.io/syou551/FileUploader-back:latest
   nginx:
-    runs-on: ubunts-latest
+    runs-on: ubuntu-latest
     steps:
       - name: checkout
         uses: actions/checkout@v3
