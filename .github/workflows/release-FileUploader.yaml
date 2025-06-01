@@ -1,0 +1,84 @@
+name: release-FileUploader-image
+on:
+  push:
+    branches:
+      - main
+    pull_request:
+      - main
+
+jobs:
+  front:
+    runs-on: ubunts-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: login GitHub
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: syou551
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: setup Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: build and push image
+        uses: docker/build-push-action@v5
+        with:
+          push: true
+          context: ./FileUploader/front
+          file: Dockerfile
+          tags: |
+            ghcr.io/syou551/FileUploader-front:v1.0.0-${{ github.sha }}-${{ github.run_number }}
+            ghcr.io/syou551/FileUploader-front:latest
+  back:
+    runs-on: ubunts-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: login GitHub
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: syou551
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: setup Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: build and push image
+        uses: docker/build-push-action@v5
+        with:
+          push: true
+          context: ./FileUploader/back
+          file: Dockerfile
+          tags: |
+            ghcr.io/syou551/FileUploader-back:v1.0.0-${{ github.sha }}-${{ github.run_number }}
+            ghcr.io/syou551/FileUploader-back:latest
+  nginx:
+    runs-on: ubunts-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: login GitHub
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: syou551
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: setup Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: build and push image
+        uses: docker/build-push-action@v5
+        with:
+          push: true
+          context: ./FileUploader/nginx
+          file: Dockerfile
+          tags: |
+            ghcr.io/syou551/FileUploader-nginx:v1.0.0-${{ github.sha }}-${{ github.run_number }}
+            ghcr.io/syou551/FileUploader-nginx:latest
