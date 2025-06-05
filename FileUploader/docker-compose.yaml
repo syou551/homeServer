@@ -3,12 +3,15 @@ services:
     build:
       context: ./front
       dockerfile: Dockerfile
+    env_file:
+      - ./front/.env.local
     working_dir: /node/FileUploader/front/dir-share
-    command: npm run start
   back:
     build:
       context: ./back
       dockerfile: Dockerfile
+    env_file:
+      - ./back/.env
     working_dir: /go/src/FileUploader/back
     volumes:
       - ./.tmp:/tmp/share
