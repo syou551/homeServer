@@ -1,4 +1,4 @@
-FROM node:23.6
+FROM node:latest
 
 WORKDIR /node
 EXPOSE 3000
@@ -7,7 +7,7 @@ RUN git clone https://github.com/syou551/FileUploader.git
 
 
 WORKDIR /node/FileUploader/front/dir-share
+COPY ./setup.sh ./
+RUN npm install
 
-COPY ./.env.local .
-RUN npm install\
-    && npm run build
+ENTRYPOINT [ "/node/FileUploader/front/dir-share/setup.sh" ]
