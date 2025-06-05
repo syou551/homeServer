@@ -1,9 +1,7 @@
 version: "3"
 services:
   keycloak:
-    build: 
-      context: ./keycloak
-      dockerfile: Dockerfile
+    image: ghcr.io/syou551/keycloak:latest
     tty: true
     stdin_open: true
     environment:
