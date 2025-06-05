@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.35.0 (9532ceef3)
+  labels:
+    io.kompose.service: back
+  name: back
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: back
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.35.0 (9532ceef3)
+      labels:
+        io.kompose.service: back
+    spec:
+      containers:
+        - args:
+            - bash
+            - -c
+            - ./main
+          env:
+            - name: ROOTPATH
+              valueFrom:
+                configMapKeyRef:
+                  key: ROOTPATH
+                  name: back-env
+          image: ghcr.io/syou551/file-uploader-back:latest
+          name: back
+          volumeMounts:
+            - mountPath: /tmp/share
+              name: back-claim0
+          workingDir: /go/src/FileUploader/back
+      restartPolicy: Always
+      volumes:
+        - name: back-claim0
+          persistentVolumeClaim:
+            claimName: back-claim0
