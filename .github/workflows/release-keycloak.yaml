@@ -28,7 +28,7 @@ jobs:
         with:
           push: true
           context: ./keycloak/keycloak
-          file: Dockerfile
+          file: ./keycloak/keycloak/Dockerfile
           tags: |
             ghcr.io/syou551/keycloak:v1.0.0-${{ github.sha }}-${{ github.run_number }}
             ghcr.io/syou551/keycloak:latest
