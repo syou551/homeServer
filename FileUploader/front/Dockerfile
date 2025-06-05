@@ -7,7 +7,7 @@ RUN git clone https://github.com/syou551/FileUploader.git
 
 
 WORKDIR /node/FileUploader/front/dir-share
-COPY ./setup.sh ./
+COPY ./setup_sample.sh ./
 RUN npm install
 
 ENTRYPOINT [ "/node/FileUploader/front/dir-share/setup.sh" ]
