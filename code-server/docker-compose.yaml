@@ -1,8 +1,6 @@
 services:
   code-server:
-    build: 
-      context: ./code-server
-      dockerfile: Dockerfile
+    image: codercom/code-server:latest
     container_name: code-server
     restart: always
     ports:

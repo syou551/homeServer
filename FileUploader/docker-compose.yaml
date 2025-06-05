@@ -1,15 +1,11 @@
 services:
   front:
-    build:
-      context: ./front
-      dockerfile: Dockerfile
+    image: ghcr.io/syou551/file-uploader-front:latest
     env_file:
       - ./front/.env.local
     working_dir: /node/FileUploader/front/dir-share
   back:
-    build:
-      context: ./back
-      dockerfile: Dockerfile
+    image: ghcr.io/syou551/file-uploader-back:latest
     env_file:
       - ./back/.env
     working_dir: /go/src/FileUploader/back
@@ -18,16 +14,12 @@ services:
     command: bash -c "./main"
     restart: always
   nginx:
-    build:
-      context: ./nginx
-      dockerfile: Dockerfile
+    image: ghcr.io/syou551/file-uploader-back:latest
     depends_on:
       - front
       - back
   oauth2-proxy:
-    build: 
-      context: ./oauth2proxy
-      dockerfile: Dockerfile
+    image: quay.io/oauth2-proxy/oauth2-proxy:v7.7.1
     command:
       - --provider=keycloak-oidc
       - --oidc-issuer-url=http://auth.syou551.dev/realms/auth
