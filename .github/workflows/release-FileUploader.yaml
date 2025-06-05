@@ -28,7 +28,7 @@ jobs:
         with:
           push: true
           context: ./FileUploader/front
-          file: Dockerfile
+          file: ./FileUploader/front/Dockerfile
           tags: |
             ghcr.io/syou551/file-uploader-front:v1.0.0-${{ github.sha }}-${{ github.run_number }}
             ghcr.io/syou551/file-uploader-front:latest
@@ -53,7 +53,7 @@ jobs:
         with:
           push: true
           context: ./FileUploader/back
-          file: Dockerfile
+          file: ./FileUploader/back/Dockerfile
           tags: |
             ghcr.io/syou551/file-uploader-back:v1.0.0-${{ github.sha }}-${{ github.run_number }}
             ghcr.io/syou551/file-uploader-back:latest
@@ -78,7 +78,7 @@ jobs:
         with:
           push: true
           context: ./FileUploader/nginx
-          file: Dockerfile
+          file: ./FileUploader/nginx/Dockerfile
           tags: |
             ghcr.io/syou551/file-uploader-nginx:v1.0.0-${{ github.sha }}-${{ github.run_number }}
             ghcr.io/syou551/file-uploader-nginx:latest
