@@ -11,6 +11,5 @@ RUN git clone https://github.com/syou551/FileUploader.git
 
 WORKDIR /go/src/FileUploader/back
 
-COPY ./.env .
 RUN go mod tidy\
     && go build main.go handler.go
