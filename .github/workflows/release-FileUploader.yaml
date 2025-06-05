@@ -30,8 +30,8 @@ jobs:
           context: ./FileUploader/front
           file: Dockerfile
           tags: |
-            ghcr.io/syou551/FileUploader-front:v1.0.0-${{ github.sha }}-${{ github.run_number }}
-            ghcr.io/syou551/FileUploader-front:latest
+            ghcr.io/syou551/file-uploader-front:v1.0.0-${{ github.sha }}-${{ github.run_number }}
+            ghcr.io/syou551/file-uploader-front:latest
   back:
     runs-on: ubuntu-latest
     steps:
@@ -55,8 +55,8 @@ jobs:
           context: ./FileUploader/back
           file: Dockerfile
           tags: |
-            ghcr.io/syou551/FileUploader-back:v1.0.0-${{ github.sha }}-${{ github.run_number }}
-            ghcr.io/syou551/FileUploader-back:latest
+            ghcr.io/syou551/file-uploader-back:v1.0.0-${{ github.sha }}-${{ github.run_number }}
+            ghcr.io/syou551/file-uploader-back:latest
   nginx:
     runs-on: ubuntu-latest
     steps:
@@ -80,5 +80,5 @@ jobs:
           context: ./FileUploader/nginx
           file: Dockerfile
           tags: |
-            ghcr.io/syou551/FileUploader-nginx:v1.0.0-${{ github.sha }}-${{ github.run_number }}
-            ghcr.io/syou551/FileUploader-nginx:latest
+            ghcr.io/syou551/file-uploader-nginx:v1.0.0-${{ github.sha }}-${{ github.run_number }}
+            ghcr.io/syou551/file-uploader-nginx:latest
