@@ -14,7 +14,7 @@ services:
     command: bash -c "./main"
     restart: always
   nginx:
-    image: ghcr.io/syou551/file-uploader-back:latest
+    image: ghcr.io/syou551/file-uploader-nginx:latest
     depends_on:
       - front
       - back
