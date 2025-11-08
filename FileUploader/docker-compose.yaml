@@ -14,7 +14,7 @@ services:
     command: bash -c "./main"
     restart: always
   nginx:
-    image: ghcr.io/syou551/file-uploader-back:latest
+    image: ghcr.io/syou551/file-uploader-nginx:latest
     depends_on:
       - front
       - back
@@ -22,7 +22,7 @@ services:
     image: quay.io/oauth2-proxy/oauth2-proxy:v7.7.1
     command:
       - --provider=keycloak-oidc
-      - --oidc-issuer-url=http://auth.syou551.dev/realms/auth
+      - --oidc-issuer-url=https://auth.syou551.dev/realms/auth
       - --client-id=fileUploader
       - --client-secret=${CLIENT_SECRET}
       - --cookie-secret=${COOKIE_SECRET}
