@@ -35,6 +35,9 @@ spec:
                   name: back-env
           image: ghcr.io/syou551/file-uploader-back:latest
           name: back
+          ports:
+            - containerPort: 80
+              protocol: TCP
           volumeMounts:
             - mountPath: /tmp/share
               name: back-claim0

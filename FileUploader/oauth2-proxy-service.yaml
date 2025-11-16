@@ -8,6 +8,7 @@ metadata:
     io.kompose.service: oauth2-proxy
   name: oauth2-proxy
 spec:
+  type: NodePort
   ports:
     - name: "8080"
       port: 8080

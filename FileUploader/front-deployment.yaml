@@ -69,5 +69,8 @@ spec:
                   name: front-env-local
           image: ghcr.io/syou551/file-uploader-front:latest
           name: front
+          ports:
+            - containerPort: 3000
+              protocol: TCP
           workingDir: /node/FileUploader/front/dir-share
       restartPolicy: Always

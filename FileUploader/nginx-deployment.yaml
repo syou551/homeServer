@@ -21,6 +21,8 @@ spec:
         io.kompose.service: nginx
     spec:
       containers:
-        - image: ghcr.io/syou551/file-uploader-back:latest
+        - image: ghcr.io/syou551/file-uploader-nginx:latest
           name: nginx
+          ports:
+          - containerPort: 8080
       restartPolicy: Always
