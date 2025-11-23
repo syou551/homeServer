@@ -27,8 +27,8 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          context: ./FileUploader/front
-          file: ./FileUploader/front/Dockerfile
+          context: ./DockerImage/FileUploader/front
+          file: ./DockerImage/FileUploader/front/Dockerfile
           tags: |
             ghcr.io/syou551/file-uploader-front:v1.0.0-${{ github.sha }}-${{ github.run_number }}
             ghcr.io/syou551/file-uploader-front:latest
@@ -52,8 +52,8 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          context: ./FileUploader/back
-          file: ./FileUploader/back/Dockerfile
+          context: ./DockerImage/FileUploader/back
+          file: ./DockerImage/FileUploader/back/Dockerfile
           tags: |
             ghcr.io/syou551/file-uploader-back:v1.0.0-${{ github.sha }}-${{ github.run_number }}
             ghcr.io/syou551/file-uploader-back:latest
@@ -77,8 +77,8 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          context: ./FileUploader/nginx
-          file: ./FileUploader/nginx/Dockerfile
+          context: ./DockerImage/FileUploader/nginx
+          file: ./DockerImage/FileUploader/nginx/Dockerfile
           tags: |
             ghcr.io/syou551/file-uploader-nginx:v1.0.0-${{ github.sha }}-${{ github.run_number }}
             ghcr.io/syou551/file-uploader-nginx:latest

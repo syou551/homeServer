@@ -5,8 +5,9 @@ metadata:
     io.kompose.service: back-claim0
   name: back-claim0
 spec:
+  storageClassName: nfs-csi
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
-      storage: 100Mi
+      storage: 1Gi
