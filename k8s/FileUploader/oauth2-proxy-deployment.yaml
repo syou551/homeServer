@@ -21,11 +21,6 @@ spec:
         io.kompose.service: oauth2-proxy
     spec:
       containers:
-        - envFrom:
-            - configMapRef:
-                name: oauth2-proxy-env
-          imagePullPolicy: Always
-          name: oauth2-proxy
         - args:
             - --provider=keycloak-oidc
             - --oidc-issuer-url=$(OAUTH2_PROXY_OIDC_ISSUER_URL)
@@ -43,6 +38,9 @@ spec:
             - --whitelist-domain=$(OAUTH2_PROXY_WHITELIST_DOMAIN)
           image: quay.io/oauth2-proxy/oauth2-proxy:v7.7.1
           name: oauth2-proxy
+          envFrom:
+            - configMapRef:
+                name: oauth2-proxy-env
           ports:
             - containerPort: 4180
               protocol: TCP
