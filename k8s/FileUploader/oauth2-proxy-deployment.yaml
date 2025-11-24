@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.35.0 (9532ceef3)
+  labels:
+    io.kompose.service: oauth2-proxy
+  name: oauth2-proxy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: oauth2-proxy
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.35.0 (9532ceef3)
+      labels:
+        io.kompose.service: oauth2-proxy
+    spec:
+      containers:
+        - args:
+            - --provider=keycloak-oidc
+            - --oidc-issuer-url=$(OAUTH2_PROXY_OIDC_ISSUER_URL)
+            - --client-id=$(OAUTH2_PROXY_CLIENT_ID)
+            - --client-secret=$(OAUTH2_PROXY_CLIENT_SECRET)
+            - --cookie-secret=$(OAUTH2_PROXY_COOKIE_SECRET)
+            - --redirect-url=$(OAUTH2_PROXY_REDIRECT_URL)
+            - --upstream=$(OAUTH2_PROXY_UPSTREAM)
+            - --email-domain=*
+            - --http-address=0.0.0.0:4180
+            - --errors-to-info-log
+            - --cookie-secure=false
+            - --reverse-proxy=true
+            - --allowed-role=admin
+            - --whitelist-domain=$(OAUTH2_PROXY_WHITELIST_DOMAIN)
+          image: quay.io/oauth2-proxy/oauth2-proxy:v7.7.1
+          name: oauth2-proxy
+          envFrom:
+            - configMapRef:
+                name: oauth2-proxy-env
+          ports:
+            - containerPort: 4180
+              protocol: TCP
+      restartPolicy: Always

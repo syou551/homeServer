@@ -1,4 +1,4 @@
-name: release-keycloak-image
+name: release-nfs-image
 on:
   push:
     branches:
@@ -7,7 +7,7 @@ on:
       - main
 
 jobs:
-  keycloak:
+  nfs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -27,8 +27,8 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          context: ./DockerImage/keycloak/keycloak
-          file: ./DockerImage/keycloak/keycloak/Dockerfile
+          context: ./DockerImage/nfs
+          file: ./DockerImage/nfs/Dockerfile
           tags: |
-            ghcr.io/syou551/keycloak:v1.0.0-${{ github.sha }}-${{ github.run_number }}
-            ghcr.io/syou551/keycloak:latest
+            ghcr.io/syou551/nfs:v1.0.0-${{ github.sha }}-${{ github.run_number }}
+            ghcr.io/syou551/nfs:latest

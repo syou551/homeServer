@@ -1,4 +1,4 @@
-name: release-keycloak-image
+name: release-overleaf-image
 on:
   push:
     branches:
@@ -7,7 +7,7 @@ on:
       - main
 
 jobs:
-  keycloak:
+  overleaf:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -27,8 +27,8 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          context: ./DockerImage/keycloak/keycloak
-          file: ./DockerImage/keycloak/keycloak/Dockerfile
+          context: ./DockerImage/overleaf/overleaf
+          file: ./DockerImage/overleaf/overleaf/Dockerfile
           tags: |
-            ghcr.io/syou551/keycloak:v1.0.0-${{ github.sha }}-${{ github.run_number }}
-            ghcr.io/syou551/keycloak:latest
+            ghcr.io/syou551/overleaf:v1.0.0-${{ github.sha }}-${{ github.run_number }}
+            ghcr.io/syou551/overleaf:latest
