@@ -1,0 +1,16 @@
+repositories:
+
+- name: nfs-ganesha-server-and-external-provisioner
+  url: https://kubernetes-sigs.github.io/nfs-ganesha-server-and-external-provisioner
+
+releases:
+
+- name: nfs-server-provisioner
+  namespace: nfs-server-provisioner
+  createNamespace: true
+  chart: nfs-ganesha-server-and-external-provisioner/nfs-server-provisioner
+  version: 1.8.0
+  values:
+  - persistence:
+      enabled: true
+      existingClaim: "export-pvc"
