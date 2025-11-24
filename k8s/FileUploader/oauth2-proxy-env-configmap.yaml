@@ -1,0 +1,14 @@
+apiVersion: v1
+data:
+  OAUTH2_PROXY_CLIENT_SECRET: "<your-client-secret-here>"
+  OAUTH2_PROXY_COOKIE_SECRET: "<your-cookie-secret-here>"
+  OAUTH2_PROXY_CLIENT_ID: "<your-client-id-here>"
+  OAUTH2_PROXY_OIDC_ISSUER_URL: "hoge"
+  OAUTH2_PROXY_REDIRECT_URL: "hoge"
+  OAUTH2_PROXY_UPSTREAM: "hoge"
+  OAUTH2_PROXY_WHITELIST_DOMAIN: "hoge"
+kind: ConfigMap
+metadata:
+  labels:
+    io.kompose.service: oauth2-proxy-env
+  name: oauth2-proxy-env

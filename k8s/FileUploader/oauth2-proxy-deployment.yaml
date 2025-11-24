@@ -21,21 +21,26 @@ spec:
         io.kompose.service: oauth2-proxy
     spec:
       containers:
+        - envFrom:
+            - configMapRef:
+                name: oauth2-proxy-env
+          imagePullPolicy: Always
+          name: oauth2-proxy
         - args:
             - --provider=keycloak-oidc
-            - --oidc-issuer-url=http://auth.syou551.dev/realms/auth
-            - --client-id=fileUploader
-            - --client-secret=
-            - --cookie-secret=
-            - --redirect-url=https://fileup.syou551.dev/oauth2/callback
-            - --upstream=http://nginx:80
+            - --oidc-issuer-url=$(OAUTH2_PROXY_OIDC_ISSUER_URL)
+            - --client-id=$(OAUTH2_PROXY_CLIENT_ID)
+            - --client-secret=$(OAUTH2_PROXY_CLIENT_SECRET)
+            - --cookie-secret=$(OAUTH2_PROXY_COOKIE_SECRET)
+            - --redirect-url=$(OAUTH2_PROXY_REDIRECT_URL)
+            - --upstream=$(OAUTH2_PROXY_UPSTREAM)
             - --email-domain=*
             - --http-address=0.0.0.0:4180
             - --errors-to-info-log
             - --cookie-secure=false
             - --reverse-proxy=true
             - --allowed-role=admin
-            - --whitelist-domain=auth.syou551.dev
+            - --whitelist-domain=$(OAUTH2_PROXY_WHITELIST_DOMAIN)
           image: quay.io/oauth2-proxy/oauth2-proxy:v7.7.1
           name: oauth2-proxy
           ports:
