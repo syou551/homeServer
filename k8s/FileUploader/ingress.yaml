@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: fileuploader-ingress
+spec:
+  ingressClassName: "cloudflare-tunnel"
+  rules:
+  - host: fileup-k8s.syou551.dev
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: oauth2-proxy
+            port:
+              number: 8080
