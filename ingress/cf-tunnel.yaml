@@ -10,12 +10,8 @@ spec:
     chart: cloudflare-tunnel-ingress-controller
     targetRevision: 0.0.12
     helm:
-      valuesObject:
-        cloudflare:
-          apiToken: <hoge>
-          accountId: <hoge>
-          tunnelName: ingress-cf
-
+      valueFiles:
+        - values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: cloudflare-tunnel-ingress-controller
