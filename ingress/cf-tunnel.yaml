@@ -12,8 +12,8 @@ spec:
     helm:
       valuesObject:
         cloudflare:
-          apiToken: hNsPZS4gb6PYO4E-OiJ9cZoL-uaHE1RocsIPA_qN
-          accountId: 90ca08cc7f80618294724a204947fb93
+          apiToken: <hoge>
+          accountId: <hoge>
           tunnelName: ingress-cf
 
   destination:
