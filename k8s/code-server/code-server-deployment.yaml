@@ -27,6 +27,10 @@ spec:
             - --auth=password
           env:
             - name: PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  key: PASSWORD
+                  name: code-server-env
             - name: TZ
               value: Asia/Tokyo
           image: codercom/code-server:latest

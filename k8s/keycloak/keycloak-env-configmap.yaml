@@ -1,0 +1,12 @@
+apiVersion: v1
+data:
+  DB_DATABASE:
+  DB_PASSWORD:
+  DB_USER: 
+  KEYCLOAK_ADMIN:
+  KEYCLOAK_ADMIN_PASSWORD:
+kind: ConfigMap
+metadata:
+  labels:
+    io.kompose.service: code-server-env
+  name: code-server-env
