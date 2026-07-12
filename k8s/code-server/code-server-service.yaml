@@ -8,6 +8,7 @@ metadata:
     io.kompose.service: code-server
   name: code-server
 spec:
+  type: NodePort
   ports:
     - name: "8020"
       port: 8020
