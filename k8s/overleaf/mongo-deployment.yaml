@@ -28,7 +28,7 @@ spec:
             - overleaf
           env:
             - name: MONGO_INITDB_DATABASE
-              value: sharelatex
+              value: overleaf
           image: mongo:6.0
           livenessProbe:
             exec:
