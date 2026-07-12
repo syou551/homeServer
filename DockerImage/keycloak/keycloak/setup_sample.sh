@@ -1,6 +1,10 @@
 #!/bin/sh
 cd /opt/keycloak/bin
 
+export KC_HTTP_HOST=0.0.0.0
+export KC_HOSTNAME_STRICT=false
+export KC_PROXY_HEADERS=xforwarded
+
 ./kc.sh start-dev &
 KC_PID=$!
 
