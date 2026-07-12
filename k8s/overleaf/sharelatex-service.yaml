@@ -8,6 +8,7 @@ metadata:
     io.kompose.service: sharelatex
   name: sharelatex
 spec:
+  type: NodePort
   ports:
     - name: "8040"
       port: 8040

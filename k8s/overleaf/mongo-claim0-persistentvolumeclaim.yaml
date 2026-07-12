@@ -5,7 +5,7 @@ metadata:
     io.kompose.service: mongo-claim0
   name: mongo-claim0
 spec:
-  storageClassname: nfs
+  storageClassName: nfs
   accessModes:
     - ReadWriteMany
   resources:

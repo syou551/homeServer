@@ -5,7 +5,7 @@ metadata:
     io.kompose.service: sharelatex-claim0
   name: sharelatex-claim0
 spec:
-  storageClassname: nfs
+  storageClassName: nfs
   accessModes:
     - ReadWriteMany
   resources:
