@@ -5,7 +5,7 @@ metadata:
 spec:
   ingressClassName: "cloudflare-tunnel"
   rules:
-  - host: overleaf-k8s.syou551.dev
+  - host: overleaf.syou551.dev
     http:
       paths:
       - pathType: Prefix

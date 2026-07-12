@@ -27,12 +27,32 @@ spec:
             - name: DB_ADDR
               value: postgres
             - name: DB_DATABASE
+              valueFrom:
+                configMapKeyRef:
+                  key: DB_DATABASE
+                  name: keycloak-env
             - name: DB_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  key: DB_PASSWORD
+                  name: keycloak-env
             - name: DB_USER
+              valueFrom:
+                configMapKeyRef:
+                  key: DB_USER
+                  name: keycloak-env
             - name: DB_VENDOR
               value: POSTGRES
             - name: KEYCLOAK_ADMIN
+              valueFrom:
+                configMapKeyRef:
+                  key: KEYCLOAK_ADMIN
+                  name: keycloak-env
             - name: KEYCLOAK_ADMIN_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  key: KEYCLOAK_ADMIN_PASSWORD
+                  name: keycloak-env
             - name: TZ
               value: Asia/Tokyo
           image: ghcr.io/syou551/keycloak:latest

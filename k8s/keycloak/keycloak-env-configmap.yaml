@@ -8,5 +8,5 @@ data:
 kind: ConfigMap
 metadata:
   labels:
-    io.kompose.service: code-server-env
-  name: code-server-env
+    io.kompose.service: keycloak-env
+  name: keycloak-env
