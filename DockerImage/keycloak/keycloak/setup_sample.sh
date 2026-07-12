@@ -1,15 +1,17 @@
-#!/bin/bash
-
+#!/bin/sh
 cd /opt/keycloak/bin
 
 ./kc.sh start-dev &
+KC_PID=$!
 
 sleep 30
-./kcadm.sh config credentials --server http://localhost:8080 --realm master --user admin --password admin
 
+ADMIN_USER=${KEYCLOAK_ADMIN:-admin}
+ADMIN_PASS=${KEYCLOAK_ADMIN_PASSWORD:-admin}
+
+./kcadm.sh config credentials --server http://localhost:8080 --realm master --user "$ADMIN_USER" --password "$ADMIN_PASS"
 ./kcadm.sh update realms/master -s sslRequired=NONE
 
-while true
-do
-sleep 1000
-done
+# 4. whileループの代わりに、Keycloakのプロセスを前面で待機(wait)させる
+# これにより、Keycloakが落ちたらコンテナも終了し、K8sが自動復旧できるようになります
+wait $KC_PID

@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: overleaf-ingress
+spec:
+  ingressClassName: "cloudflare-tunnel"
+  rules:
+  - host: overleaf.syou551.dev
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: sharelatex
+            port:
+              number: 8040

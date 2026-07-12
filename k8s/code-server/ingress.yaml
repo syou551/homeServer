@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: code-server-ingress
+spec:
+  ingressClassName: "cloudflare-tunnel"
+  rules:
+  - host: code-server.syou551.dev
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: code-server
+            port:
+              number: 8020
