@@ -32,12 +32,12 @@ spec:
             - name: POSTGRES_PASSWORD
               valueFrom:
                 configMapKeyRef:
-                  key: DB_DATABASE
+                  key: DB_PASSWORD
                   name: keycloak-env
             - name: POSTGRES_USER
               valueFrom:
                 configMapKeyRef:
-                  key: DB_DATABASE
+                  key: DB_USER
                   name: keycloak-env
           image: postgres:latest
           name: postgres
@@ -45,7 +45,7 @@ spec:
             - containerPort: 5432
               protocol: TCP
           volumeMounts:
-            - mountPath: /var/lib/postgresql/data
+            - mountPath: /var/lib/postgresql
               name: postgres-claim0
       restartPolicy: Always
       volumes:

@@ -8,6 +8,7 @@ metadata:
     io.kompose.service: keycloak
   name: keycloak
 spec:
+  type: NodePort
   ports:
     - name: "8010"
       port: 8010
