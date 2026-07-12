@@ -4,6 +4,7 @@ cd /opt/keycloak/bin
 export KC_HTTP_HOST=0.0.0.0
 export KC_HOSTNAME_STRICT=false
 export KC_PROXY_HEADERS=xforwarded
+export KC_FEATURES=scripts
 
 ./kc.sh start-dev &
 KC_PID=$!
