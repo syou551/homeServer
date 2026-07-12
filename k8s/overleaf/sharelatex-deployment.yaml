@@ -40,7 +40,7 @@ spec:
               value: ja
             - name: REDIS_HOST
               value: redis
-          image: sharelatex/sharelatex:v2
+          image: ghcr.io/syou551/overleaf:latest
           name: sharelatex
           ports:
             - containerPort: 80
